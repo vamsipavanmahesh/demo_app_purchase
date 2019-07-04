@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgres
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: demo_app_purchase_development
+  port: 5432
+  pool: 30
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: demp_app_purchase_test
+  port: 5432
+  pool: 5
