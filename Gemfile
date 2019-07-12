@@ -65,5 +65,9 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem 'fastlane', '~> 2.54.2'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails', '~> 4.3.5'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
