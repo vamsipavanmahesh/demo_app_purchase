@@ -1,24 +1,24 @@
-# README
+Steps to setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+bundle install
+rake db:create
+rake db:migrate
+```
 
-Things you may want to cover:
+Copy `.env` to root directory with the following content
 
-* Ruby version
+```
+USERNAME = 'app store user name'
+PASSWORD = 'app store password'
+APP_NAME = 'io.transporterapp.test1'
+```
 
-* System dependencies
+What can be improved on:
 
-* Configuration
+1) Async loading of partials
+2) Make it work for all apps in the account, right now I reduced the scope
+to single app by passing in ENV
+3) Rspec tests for controller
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Demo here: https://infinite-peak-54103.herokuapp.com/
