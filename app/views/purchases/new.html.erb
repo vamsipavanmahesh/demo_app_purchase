@@ -5,6 +5,10 @@
     <div> <%= @error %> </div>
   <% end %>
 
+  <div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
   <%= bootstrap_form_for :in_app_purchase, url: {action: "create"}, method: "post", html: {id: "in_app_purchase"} do |f| %>
     <%= f.text_field :reference_name %>
     <%= f.text_field :product_id %>
@@ -16,7 +20,7 @@
     <input type="hidden" id="counter" name="in_app_purchase[counter]" value="">
 
     <div>
-      <%= f.submit "Create" %>
+      <%= f.submit "Create", id: 'submit' %>
     </div>
   <% end %>
 </div>

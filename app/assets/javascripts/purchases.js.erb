@@ -41,4 +41,10 @@ $(document).on('turbolinks:load', function() {
     counter++;
     $('#counter').val(counter);
   }
+
+  $(".spinner-grow").hide();
+
+  $('#submit').on("click", function() {
+    $(".spinner-grow").show();
+  });
 });
