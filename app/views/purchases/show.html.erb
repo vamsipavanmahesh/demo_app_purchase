@@ -1,0 +1,30 @@
+<div class="container">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Apple ID</th>
+        <td><%= @single_in_app_purchase&.purple_apple_id&.first %></td>
+      </tr>
+      <tr>
+        <th>Reference name</th>
+        <td><%= @single_in_app_purchase&.reference_name %></td>
+      </tr>
+      <tr>
+        <th>Product ID</th>
+        <td><%= @single_in_app_purchase&.product_id %></td>
+      </tr>
+      <tr>
+        <th>Duration days</th>
+        <td><%= @single_in_app_purchase&.duration_days %></td>
+      </tr>
+      <tr>
+        <th>Is news subscription</th>
+        <td><%= @single_in_app_purchase&.is_news_subscription %></td>
+      </tr>
+      <tr>
+        <th> Is editable</th>
+        <td><%= @single_in_app_purchase&.is_editable %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

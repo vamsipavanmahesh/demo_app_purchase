@@ -23,7 +23,7 @@
         <tr>
           <td><%= in_app_purchase.reference_name %></td>
           <td><%= in_app_purchase.type %></td>
-          <td><%= in_app_purchase.product_id %></td>
+          <td><%= link_to in_app_purchase.product_id, purchase_path(in_app_purchase.product_id) %></td>
           <td><%= in_app_purchase.status %></td>
         </tr>
       <% end %>

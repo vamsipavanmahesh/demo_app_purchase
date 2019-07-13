@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
   def index
     @app_name = app.name
     @app_icon = app.app_icon_preview_url
-    @existing_in_app_purchases = app.in_app_purchases.all
+    @existing_in_app_purchases = in_app_purchases
   end
 
   def create
@@ -22,9 +22,16 @@ class PurchasesController < ApplicationController
   end
 
   def show
+    @single_in_app_purchase = in_app_purchases.select do |iap|
+      iap.product_id == params[:id]
+    end.first
   end
 
   private
+
+  def in_app_purchases
+    @in_app_purchases ||= app.in_app_purchases.all
+  end
 
   def login
     Spaceship::Tunes.login(ENV['USERNAME'], ENV['PASSWORD'])
