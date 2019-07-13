@@ -10,6 +10,12 @@
   </div>
 
   <%= bootstrap_form_for :in_app_purchase, url: {action: "create"}, method: "post", html: {id: "in_app_purchase"} do |f| %>
+    <div class="row">
+      <div class="col-9"></div> 
+      <div class="col-3">
+        <%= f.submit "Create", id: 'submit' %>
+      </div>
+    </div>
     <%= f.text_field :reference_name %>
     <%= f.text_field :product_id %>
     <%= f.check_box :cleared_for_sale %>
@@ -19,8 +25,5 @@
     <div class="add-dynamic-fields">
     <input type="hidden" id="counter" name="in_app_purchase[counter]" value="">
 
-    <div>
-      <%= f.submit "Create", id: 'submit' %>
-    </div>
   <% end %>
 </div>
