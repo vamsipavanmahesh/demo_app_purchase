@@ -10,14 +10,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    login
-
-    app.in_app_purchases.create!(
-      type: Spaceship::Tunes::IAPType::CONSUMABLE, versions: versions,
-      reference_name: in_app_purchase.dig('reference_name'),
-      product_id: in_app_purchase.dig('product_id'),
-      cleared_for_sale: cleared_for_sale
-    )
+    create_in_app_purchase
     redirect_to '/'
     rescue Exception => e
       puts "exception is #{e.message}" # [Improvement based on tech stack] logger here
@@ -39,6 +32,15 @@ class PurchasesController < ApplicationController
 
   def app
     @app ||= Spaceship::Tunes::Application.find(ENV['APP_NAME'])
+  end
+
+  def create_in_app_purchase
+    app.in_app_purchases.create!(
+      type: Spaceship::Tunes::IAPType::CONSUMABLE, versions: versions,
+      reference_name: in_app_purchase.dig('reference_name'),
+      product_id: in_app_purchase.dig('product_id'),
+      cleared_for_sale: cleared_for_sale
+    )
   end
 
   def versions
