@@ -67,6 +67,7 @@ end
 
 gem 'fastlane', '~> 2.54.2'
 gem 'bootstrap', '~> 4.3.1'
+gem "bootstrap_form", ">= 4.2.0"
 gem 'jquery-rails', '~> 4.3.5'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
