@@ -1,0 +1,44 @@
+$(document).on('turbolinks:load', function() {
+
+  var counter = 0;
+
+  $('.add-language').on("click", function(){
+    incrementCounter();
+
+    let in_app_purchase_form = $('.add-dynamic-fields');
+    in_app_purchase_form.append(document.createElement("div"));
+    in_app_purchase_form.append(selectLanguage(counter))
+    let name = createInputElement('name', counter)
+    in_app_purchase_form.append(name);
+    let description = createInputElement('description', counter)
+    in_app_purchase_form.append(description);
+  })
+
+  function selectLanguage(counter){
+    var array = <%= FastlaneCore::Languages::ALL_LANGUAGES %>
+    var selectList = document.createElement("select");
+    selectList.setAttribute('name', `in_app_purchase[language+${counter}]`)
+
+    //Create and append the options
+    for (var i = 0; i < array.length; i++) {
+        var option = document.createElement("option");
+        option.value = array[i];
+        option.text = array[i];
+        selectList.appendChild(option);
+    }
+    return selectList;
+  }
+
+  function createInputElement(className, counter){
+    let inputElement = document.createElement("input");
+    inputElement.setAttribute('type', 'text');
+    inputElement.setAttribute('placeholder', className);
+    inputElement.setAttribute('name', `in_app_purchase[${className}+${counter}]`);
+    return inputElement;
+  }
+
+  function incrementCounter(){
+    counter++;
+    $('#counter').val(counter);
+  }
+});

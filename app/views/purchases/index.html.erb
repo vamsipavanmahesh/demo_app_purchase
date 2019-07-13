@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      App Name <%= @app_name %>
+    </div>
+    <div class="col-6">
+      <%= image_tag @app_icon, size: '100x100' %>
+    </div>
+  </div>
+  <div> <%= link_to "New Purchase", new_purchase_path %> </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Reference Name</th>
+        <th>Type</th>
+        <th>Product ID</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @existing_in_app_purchases.each do |in_app_purchase| %>
+        <tr>
+          <td><%= in_app_purchase.reference_name %></td>
+          <td><%= in_app_purchase.type %></td>
+          <td><%= in_app_purchase.product_id %></td>
+          <td><%= in_app_purchase.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -98,6 +98,9 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.4)
+    dotenv-rails (2.7.4)
+      dotenv (= 2.7.4)
+      railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     excon (0.64.0)
     execjs (2.7.0)
@@ -365,6 +368,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
+  dotenv-rails
   factory_girl_rails
   fastlane (~> 2.54.2)
   jbuilder (~> 2.5)

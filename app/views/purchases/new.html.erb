@@ -1,0 +1,22 @@
+<div class="container">
+  <h1> Create a New In App Purchase </h1>
+  <% if @error %>
+    <div> Following problems exist </div>
+    <div> <%= @error %> </div>
+  <% end %>
+
+  <%= bootstrap_form_for :in_app_purchase, url: {action: "create"}, method: "post", html: {id: "in_app_purchase"} do |f| %>
+    <%= f.text_field :reference_name %>
+    <%= f.text_field :product_id %>
+    <%= f.check_box :cleared_for_sale %>
+
+    <div class="add-language">Add Language </div>
+
+    <div class="add-dynamic-fields">
+    <input type="hidden" id="counter" name="in_app_purchase[counter]" value="">
+
+    <div>
+      <%= f.submit "Create" %>
+    </div>
+  <% end %>
+</div>
