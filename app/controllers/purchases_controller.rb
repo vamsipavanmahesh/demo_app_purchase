@@ -1,5 +1,3 @@
-require "spaceship"
-
 class PurchasesController < ApplicationController
   before_action :login, only: [:index, :create]
 
@@ -34,11 +32,15 @@ class PurchasesController < ApplicationController
   end
 
   def login
-    Spaceship::Tunes.login(ENV['USERNAME'], ENV['PASSWORD'])
+    space_ship_service.login(ENV['USERNAME'], ENV['PASSWORD'])
   end
 
   def app
-    @app ||= Spaceship::Tunes::Application.find(ENV['APP_NAME'])
+    @app ||= space_ship_service.app(ENV['APP_NAME'])
+  end
+
+  def space_ship_service
+    @space_ship_service ||= SpaceShip.new
   end
 
   def create_in_app_purchase
