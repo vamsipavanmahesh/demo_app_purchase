@@ -21,6 +21,7 @@ class SpaceShip
   def pricing_tiers
     count = Spaceship::AppVersion.client.pricing_tiers.count
     aggregator = []
+    # for some reason is not an enumerator
     (0..count-1).each do |count|
       individual_tier = []
       individual_tier << Spaceship::AppVersion.client.pricing_tiers[count].tier_name
