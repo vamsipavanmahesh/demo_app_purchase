@@ -17,6 +17,7 @@ class PurchasesController < ApplicationController
 
   def new
     @error = params[:errors]
+    @pricing_tiers = space_ship_service.pricing_tiers
   end
 
   def show
@@ -51,7 +52,14 @@ class PurchasesController < ApplicationController
       type: Spaceship::Tunes::IAPType::CONSUMABLE, versions: versions,
       reference_name: in_app_purchase.dig('reference_name'),
       product_id: in_app_purchase.dig('product_id'),
-      cleared_for_sale: cleared_for_sale
+      cleared_for_sale: cleared_for_sale,
+      pricing_intervals: [
+        {
+          begin_date: nil,
+          end_date: nil,
+          tier: in_app_purchase.dig('tier')
+        }
+      ]
     )
   end
 

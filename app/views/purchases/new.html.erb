@@ -19,6 +19,7 @@
     <%= f.text_field :reference_name %>
     <%= f.text_field :product_id %>
     <%= f.check_box :cleared_for_sale %>
+    <%= f.select :tier, options_for_select(@pricing_tiers), label: 'Pricing tier' %>
 
     <div class="add-language">Add Language </div>
 
