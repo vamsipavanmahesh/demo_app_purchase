@@ -28,11 +28,11 @@ class PurchasesController < ApplicationController
   private
 
   def in_app_purchases
-    @in_app_purchases ||= app.in_app_purchases.all
+    @in_app_purchases ||= space_ship_service.in_app_purchases(app)
   end
 
   def login
-    space_ship_service.login(ENV['USERNAME'], ENV['PASSWORD'])
+    space_ship_service.login
   end
 
   def app
@@ -40,7 +40,10 @@ class PurchasesController < ApplicationController
   end
 
   def space_ship_service
-    @space_ship_service ||= SpaceShip.new
+    @space_ship_service ||= SpaceShip.new(
+      username: ENV['USERNAME'],
+      password: ENV['PASSWORD']
+    )
   end
 
   def create_in_app_purchase
